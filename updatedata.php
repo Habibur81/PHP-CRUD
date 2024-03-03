@@ -11,7 +11,7 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["phone"]) &&
     $address = $_POST['address'];
     $sql = "UPDATE employee SET `name`= '$name', `email`= '$email', `phone`= '$phone', `address` = '$address'  WHERE id = " . $_GET["id"];
 
-    if (mysqli_query($conn, $sql)) {
+    if ($conn->query($sql)) {
         header("location: index.php");
     } else {
         echo "Something went wrong. Please try again later.";
